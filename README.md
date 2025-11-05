@@ -86,7 +86,7 @@ proyecto-01-dashboard-logistico/
 
 **Gonzalo Ulloa González**
 
-📧 gonzalo.nug@gmail.com  
+📧 gonzalo.ulloa@usach.cl  
 💼 [LinkedIn](https://www.linkedin.com/in/gonzalo-ulloa-g/)
 
 ---
