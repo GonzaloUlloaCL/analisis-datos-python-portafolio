@@ -174,6 +174,12 @@ jupyter notebook
 
 ---
 
+## 📊 Ver Análisis Completo
+
+[![Open in nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/GonzaloUlloaCL/analisis-datos-python-portafolio/blob/main/proyecto-01-dashboard-logistico/notebooks/analisis_supply_chain.ipynb)
+
+---
+
 ## 👤 Autor
 
 **Gonzalo Ulloa González**
