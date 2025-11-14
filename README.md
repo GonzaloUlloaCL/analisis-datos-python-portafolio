@@ -6,181 +6,135 @@ Proyecto completo de análisis de datos de Supply Chain que demuestra el ciclo c
 
 ## 🎯 Descripción
 
-Sistema de análisis de datos logísticos que procesa información de múltiples aspectos de la cadena de suministro: productos, ventas, inventario, logística, proveedores y producción. Incluye pipeline ETL automatizado, base de datos relacional y análisis exploratorio con visualizaciones impactantes.
+Sistema de análisis de datos logísticos que procesa información de múltiples aspectos de la cadena de suministro: productos, ventas, inventario, logística, proveedores y producción. Incluye pipeline ETL automatizado, base de datos relacional y análisis exploratorio con visualizaciones profesionales.
 
-**Dataset:** Supply Chain Data (100 registros) con 24 variables operacionales
+---
+
+## 🔥 Hallazgo Clave del Proyecto
+
+### El Problema
+OTIF (On-Time In-Full) crítico del **2%** - Solo 2 de cada 100 entregas eran completas y a tiempo.
+
+### El Análisis
+Mediante **análisis de causa raíz con Python**, identifiqué:
+
+✅ **Stock solo cubría 21.7% de la demanda** → Problema de forecasting/inventario  
+✅ **20 productos específicos** causaban 80% del problema (Análisis de Pareto)  
+✅ **Categoría Skincare** en situación crítica (8% de cobertura)  
+✅ **Lead times NO correlacionaban** → Descartado como causa  
+
+### El Valor
+- 📊 Plan estructurado: 2% → 95% OTIF en 90 días
+- 💰 Inversión focalizada en 20 SKUs críticos (no dispersa)
+- 🎯 Decisiones basadas en datos, no intuición
+- ⏱️ Análisis completado en 48 horas
+
+**Técnicas:** ETL, Análisis de Pareto, Matriz de Priorización, Correlaciones, Dashboard Interactivo
 
 ---
 
 ## ✨ Características Principales
 
-- ✅ **Pipeline ETL Automatizado**: Extracción desde CSV, transformación con Pandas, carga a MySQL
-- ✅ **Base de Datos Normalizada**: 5 tablas relacionales con integridad referencial
-- ✅ **Análisis Exploratorio Completo**: Jupyter Notebook con 15+ visualizaciones
-- ✅ **KPIs de Supply Chain**: Revenue, eficiencia logística, calidad, inventario
-- ✅ **Insights Accionables**: Recomendaciones basadas en datos
-- ✅ **Exportación de Reportes**: CSV con análisis por categoría y alertas
+- ✅ **Pipeline ETL Automatizado**: CSV → Python → MySQL
+- ✅ **Base de Datos Normalizada**: 5 tablas con integridad referencial
+- ✅ **Análisis de Causa Raíz**: Identificación del problema real
+- ✅ **Dashboard Interactivo**: Plotly Dash con filtros dinámicos
+- ✅ **KPIs de Supply Chain**: OTIF, On-Time, In-Full, cobertura de stock
+- ✅ **Visualizaciones Profesionales**: 12+ gráficos accionables
 
 ---
 
 ## 🛠️ Tecnologías
 
-**Lenguajes y Herramientas:**
-- Python 3.13
-- MySQL 8.0
-- Jupyter Notebook
-
-**Librerías Python:**
-- `pandas` & `numpy` - Manipulación y análisis de datos
-- `matplotlib` & `seaborn` - Visualizaciones
-- `pymysql` & `sqlalchemy` - Conexión a bases de datos
-- `python-dotenv` - Gestión de variables de entorno
+- **Python 3.13:** Pandas, NumPy, Matplotlib, Seaborn, Plotly
+- **MySQL 8.0:** Base de datos relacional
+- **Plotly Dash:** Dashboard web interactivo
+- **Jupyter Notebook:** Análisis documentado
+- **Git/GitHub:** Control de versiones
 
 ---
 
 ## 📁 Estructura del Proyecto
 ```
 proyecto-01-dashboard-logistico/
-│
 ├── data/
-│   ├── raw/                    # Datos originales (CSV)
-│   └── processed/              # Datos procesados
-│
-├── notebooks/
-│   └── analisis_supply_chain.ipynb  # Análisis completo con visualizaciones
-│
-├── src/
-│   ├── explore_data.py         # Exploración inicial del dataset
-│   ├── create_database.py      # Creación de estructura de BD
-│   └── etl_pipeline.py         # Pipeline ETL completo
-│
-├── outputs/
-│   ├── top_productos.csv       # Top 20 productos por revenue
-│   ├── resumen_categorias.csv  # Análisis por categoría
-│   └── productos_alerta.csv    # Productos que requieren atención
-│
-├── sql/                        # Scripts SQL (generados dinámicamente)
+│   ├── raw/              # Datos originales
+│   └── processed/        # Datos limpios
+├── notebooks/            # Jupyter con análisis completo
+├── src/                  # Scripts Python
+│   ├── create_database.py
+│   ├── etl_pipeline.py
+│   └── dashboard_app.py
+├── outputs/              # Reportes y visualizaciones
 ├── README.md
-├── requirements.txt
-└── .env                        # Configuración de BD (no incluido en repo)
+└── requirements.txt
 ```
 
 ---
 
-## 🚀 Instalación y Uso
-
-### 1. Clonar el repositorio
+## 🚀 Instalación
 ```bash
+# 1. Clonar repositorio
 git clone https://github.com/GonzaloUlloaCL/analisis-datos-python-portafolio.git
-cd analisis-datos-python-portafolio/proyecto-01-dashboard-logistico
-```
+cd proyecto-01-dashboard-logistico
 
-### 2. Crear entorno virtual
-```bash
+# 2. Crear entorno virtual
 python -m venv venv
+venv\Scripts\activate  # Windows
 
-# Windows
-venv\Scripts\activate
-
-# Mac/Linux
-source venv/bin/activate
-```
-
-### 3. Instalar dependencias
-```bash
+# 3. Instalar dependencias
 pip install -r requirements.txt
-```
 
-### 4. Configurar base de datos
-
-Crear archivo `.env` con:
-```
+# 4. Configurar .env con credenciales MySQL
 DB_HOST=localhost
-DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=tu_contraseña
+DB_PASSWORD=tu_password
 DB_NAME=supply_chain_db
-```
 
-### 5. Ejecutar el proyecto
-```bash
-# Crear base de datos
+# 5. Ejecutar pipeline
 cd src
 python create_database.py
-
-# Ejecutar ETL
 python etl_pipeline.py
 
-# Analizar en Jupyter
-cd ../notebooks
-jupyter notebook
+# 6. Ver dashboard
+python dashboard_app.py
+# Abrir: http://localhost:8050
 ```
 
 ---
 
-## 📊 KPIs Analizados
+## 📊 Resultados del Análisis
 
-### Financieros
-- Revenue total y por categoría
-- Márgenes operativos
-- Costos logísticos y de manufactura
+### KPIs Identificados
+- **OTIF:** 2.0% (crítico)
+- **On-Time:** 61.0% (aceptable)
+- **In-Full:** 2.0% (crítico)
+- **Cobertura de Stock:** 21.7%
 
-### Operacionales
-- Rotación de inventario
-- Tiempo promedio de entrega
-- Tasa de cumplimiento de órdenes
-- Niveles de stock
+### Causa Raíz
+Inventario insuficiente - política de compras inadecuada o error en forecasting.
 
-### Calidad
-- Tasa de defectos por producto y categoría
-- Resultados de inspecciones
-- Correlación defectos vs costos
-
-### Logística
-- Eficiencia por carrier (costo/día)
-- Análisis por modo de transporte
-- Optimización de rutas
+### Productos Críticos
+20 SKUs identificados con Análisis de Pareto (80/20).
 
 ---
 
-## 📈 Visualizaciones Incluidas
+## 🔮 Mejoras Futuras
 
-1. **Matriz de Correlación** - Relaciones entre variables clave
-2. **Revenue por Categoría** - Barras + Pie Chart
-3. **Top Productos** - Análisis de mejores performers
-4. **Eficiencia Logística** - Costo vs Tiempo por carrier
-5. **Análisis de Calidad** - Distribución y tendencias de defectos
-6. **Dashboard Ejecutivo** - Vista consolidada de KPIs
-
----
-
-## 💡 Insights Principales
-
-- Identificación de categoría líder en revenue
-- Detección de productos con alto stock/bajas ventas
-- Análisis de eficiencia por carrier
-- Productos con alta tasa de defectos (alertas)
-- Oportunidades de optimización de costos
-
----
-
-## 📝 Próximas Mejoras
-
-- [ ] Agregar predicciones con Machine Learning
-- [ ] Dashboard interactivo con Plotly/Dash
-- [ ] Automatización de reportes periódicos
-- [ ] Integración con APIs de proveedores
-- [ ] Análisis de series temporales
+- [ ] Modelo predictivo de demanda (Machine Learning)
+- [ ] Conexión con APIs de ERP
+- [ ] Bot de Telegram para alertas
+- [ ] Deploy en cloud (AWS, Heroku)
+- [ ] Optimización de project management con programación lineal
 
 ---
 
 ## 👤 Autor
 
-**Gonzalo Ulloa González**
+**Gonzalo Ulloa González**  
+Ingeniero Industrial | Analista de Datos
 
-Ingeniero Industrial especializado en Supply Chain y Análisis de Datos
-
-📧 gonzalo.ulloa@usach.cl  
+📧 gonzalo.ulloa@usach.cl
 💼 [LinkedIn](https://www.linkedin.com/in/gonzalo-ulloa-g/)  
 🐙 [GitHub](https://github.com/GonzaloUlloaCL)
 
@@ -188,8 +142,7 @@ Ingeniero Industrial especializado en Supply Chain y Análisis de Datos
 
 ## 📄 Licencia
 
-Este proyecto es parte de un portafolio profesional y está disponible para fines educativos.
-
+Portafolio profesional - Código disponible para fines educativos
 ---
 
 ## 🙏 Agradecimientos
